@@ -43,11 +43,11 @@ export default class BusinessAndManagement extends Component {
 
 
         return (
-            <ul>
+            <div class='list'>
                 {businessBook.map(item => {
-                    return <li>{item.title}</li>;
+                    return <div>{item.title}</div>;
                 })}
-            </ul>
+            </div>
 
 
         )

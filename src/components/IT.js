@@ -42,12 +42,11 @@ export default class IT extends Component {
 
         return (
 
-
-            <ul>
+            <div class='list'>
                 {ITbook.map(item => {
-                    return <li>{item.title}</li>;
+                    return <div>{item.title}</div>;
                 })}
-            </ul>
+            </div>
         )
     }
 

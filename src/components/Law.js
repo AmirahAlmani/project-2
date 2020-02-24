@@ -43,11 +43,11 @@ export default class Law extends Component {
 
 
         return (
-            <ul>
+            <div class='list'>
                 {lowBook.map(item => {
                     return <li>{item.title}</li>;
                 })}
-            </ul>
+            </div>
         )
     }
 
