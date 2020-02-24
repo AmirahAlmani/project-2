@@ -21,7 +21,11 @@ export default class BeatSeller extends Component {
     render() {
         return (
             <div class='list'>
-                {this.state.books.map(book => <li key={book.id}>{book.byline}{book.summary}</li>)}
+                {this.state.books.map(book => <div class='best' key={book.id}>
+                    <h4>{book.byline}</h4>
+                    <h5>{book.book_author}</h5>
+                    <p>{book.summary}</p>
+                </div>)}
             </div>
         )
     }
