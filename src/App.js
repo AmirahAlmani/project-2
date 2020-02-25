@@ -195,10 +195,13 @@ class App extends Component {
     return (
       <div>
 
+        <div class='logo'>
 
+        </div>
         <div class='head'>
-          <h1>Book website</h1>
+          <img class='logo' src='https://i.pinimg.com/originals/31/61/e1/3161e1ebbecb7efcb9bbb2b011ff489d.png' />
 
+          <h1>Book website</h1>
 
           {/* <div class='search'>
 
