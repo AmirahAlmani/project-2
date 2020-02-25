@@ -15,14 +15,16 @@ export default class Fave extends Component {
         // const isFave = this.state.isFave ? "remove_from_queue" : "add_to_queue";
         // const message = this.state.isFave ? "remove_from_queue" : "add_to_queue";
         return (
-            <div>
+            <div class='list'>
                 {this.props.faves.map((oneBookjObj) => {
-                    return <div class='list'>
-                        <h4>{oneBookjObj.title}</h4>
-                        <h5>{oneBookjObj.author}</h5>
-                        <p>{oneBookjObj.summary}</p>
-                        <div class='img-books'>{oneBookjObj.img}
+                    return <div>
+                        <div class='books'>
+                            <h4>{oneBookjObj.title}</h4>
+                            <h5>{oneBookjObj.author}</h5>
+                            <p>{oneBookjObj.summary}</p>
                             <div className={`book-row-fave }`}> <button onClick={() => this.props.addFavFunc(oneBookjObj)} >Delete</button> </div>
+                        </div>
+                        <div class='img-books'>{oneBookjObj.img}
 
                         </div></div>
                 })}

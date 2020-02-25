@@ -171,22 +171,22 @@ class App extends Component {
   };
 
 
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
-  }
+  // handleChange = (event) => {
+  //   this.setState({ value: event.target.value });
+  // }
 
-  handleSubmit = (event) => {
+  // handleSubmit = (event) => {
 
-    event.preventDefault();
-    console.log(this.state.value);
-    let newData = this.state.allData.filter(
-      (book) => {
-        return book.title.includes(this.state.value);
-      }
-    )
-    this.setState({ searchData: newData })
+  //   event.preventDefault();
+  //   console.log(this.state.value);
+  //   let newData = this.state.allData.filter(
+  //     (book) => {
+  //       return book.title.includes(this.state.value);
+  //     }
+  //   )
+  //   this.setState({ searchData: newData })
 
-  }
+  // }
 
 
 
@@ -200,7 +200,7 @@ class App extends Component {
           <h1>Book website</h1>
 
 
-          <div class='search'>
+          {/* <div class='search'>
 
             <form onSubmit={this.handleSubmit}>
               <label>
@@ -210,7 +210,7 @@ class App extends Component {
               <input class='submit' type="submit" value="Search" />
             </form>
 
-          </div>
+          </div> */}
 
         </div>
 
@@ -224,7 +224,7 @@ class App extends Component {
               <Link to="/components/Law">Law</Link>
               <Link to="/components/BeatSeller">Beat Seller</Link>
               <Link to="/components/Fave">Fave</Link>
-              {/* <Link to="/components/Search">Search</Link> */}
+              <Link to="/components/Search">Search</Link>
             </nav>
 
             {this.state.searchData.map((elem) => {
@@ -247,7 +247,7 @@ class App extends Component {
               <Route path="/components/Law" component={() => <Law addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/BeatSeller" component={BeatSeller} />
               <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} addFavFunc={this.handleFaveToggle} />} />
-              {/* <Route path="/components/Search" component={Search} /> */}
+              <Route path="/components/Search" component={Search} />
               {/* 
               <Route path="/components/1" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[0], this.state.allData[1]]} />} />
               <Route path="/components/2" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[3], this.state.allData[4]]} />} /> */}
