@@ -138,17 +138,26 @@ class App extends Component {
 
     };
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleFaveToggle = this.handleFaveToggle.bind(this)
   }
 
 
   handleFaveToggle = book => {
     console.log(book);
+    const faves = [...this.state.faves];
+    const bookIndex = faves.indexOf(book);
+
+
+
+    if (bookIndex !== 1) {
+
+      faves.push(book);
+      console.log(`Adding ${book.title} To Favors`);
+    }
+
 
     this.setState({
-      faves: [book]
+      // faves: [book]
+      faves
     }
     )
   };
