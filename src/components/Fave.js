@@ -10,6 +10,7 @@ export default class Fave extends Component {
 
 
 
+
     render() {
         // const isFave = this.state.isFave ? "remove_from_queue" : "add_to_queue";
         // const message = this.state.isFave ? "remove_from_queue" : "add_to_queue";
@@ -21,6 +22,8 @@ export default class Fave extends Component {
                         <h5>{oneBookjObj.author}</h5>
                         <p>{oneBookjObj.summary}</p>
                         <div class='img-books'>{oneBookjObj.img}
+                            <div className={`book-row-fave }`}> <button onClick={() => this.props.addFavFunc(oneBookjObj)} >Delete</button> </div>
+
                         </div></div>
                 })}
             </div>

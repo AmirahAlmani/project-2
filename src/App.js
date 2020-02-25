@@ -6,6 +6,7 @@ import IT from './components/IT';
 import Law from './components/Law';
 import BeatSeller from './components/BeatSeller';
 import Fave from './components/Fave';
+import Search from './components/Search'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -138,6 +139,7 @@ class App extends Component {
 
     };
 
+
   }
 
 
@@ -148,7 +150,13 @@ class App extends Component {
 
 
 
-    if (bookIndex !== 1) {
+    if (bookIndex !== -1) {
+
+      faves.splice(bookIndex, 1);
+      console.log(`Delete ${book.title} from Favors`);
+
+
+    } else {
 
       faves.push(book);
       console.log(`Adding ${book.title} To Favors`);
@@ -216,6 +224,7 @@ class App extends Component {
               <Link to="/components/Law">Law</Link>
               <Link to="/components/BeatSeller">Beat Seller</Link>
               <Link to="/components/Fave">Fave</Link>
+              {/* <Link to="/components/Search">Search</Link> */}
             </nav>
 
             {this.state.searchData.map((elem) => {
@@ -237,13 +246,13 @@ class App extends Component {
               <Route path="/components/IT" component={() => <IT addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/Law" component={() => <Law addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/BeatSeller" component={BeatSeller} />
-              <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} />} />
+              <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} addFavFunc={this.handleFaveToggle} />} />
+              {/* <Route path="/components/Search" component={Search} /> */}
               {/* 
               <Route path="/components/1" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[0], this.state.allData[1]]} />} />
               <Route path="/components/2" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[3], this.state.allData[4]]} />} /> */}
             </div>
           </Router>
-
 
         </div>
 
