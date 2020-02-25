@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Home from './components/Home';
 import BusinessAndManagement from './components/BusinessAndManagement';
+import List from './components/List';
 import IT from './components/IT';
 import Law from './components/Law';
 import BeatSeller from './components/BeatSeller';
+import Fave from './components/Fave';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -131,18 +133,32 @@ class App extends Component {
         }
 
       ],
-      searchData: []
+      searchData: [],
+      faves: [],
+
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleFaveToggle = this.handleFaveToggle.bind(this)
   }
 
-  handleChange(event) {
+
+  handleFaveToggle = book => {
+    console.log(book);
+
+    this.setState({
+      faves: [book]
+    }
+    )
+  };
+
+
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
 
     event.preventDefault();
     console.log(this.state.value);
@@ -190,6 +206,7 @@ class App extends Component {
               <Link to="/components/IT">IT</Link>
               <Link to="/components/Law">Law</Link>
               <Link to="/components/BeatSeller">Beat Seller</Link>
+              <Link to="/components/Fave">Fave</Link>
             </nav>
 
             {this.state.searchData.map((elem) => {
@@ -197,17 +214,24 @@ class App extends Component {
                 <h3>{elem.title}</h3>
                 <h4>{elem.author}</h4>
                 <p>{elem.summary}</p>
+
                 <div class='img-books'>{elem.img}</div>
+
               </div>
 
             })}
 
             <div>
+              <Route exact path="/" component={Home} />
               <Route path="/components/Home" component={Home} />
-              <Route path="/components/BusinessAndManagement" component={BusinessAndManagement} />
-              <Route path="/components/IT" component={IT} />
-              <Route path="/components/Law" component={Law} />
+              <Route path="/components/BusinessAndManagement" component={() => <BusinessAndManagement addFavFunc={this.handleFaveToggle} />} />
+              <Route path="/components/IT" component={() => <IT addFavFunc={this.handleFaveToggle} />} />
+              <Route path="/components/Law" component={() => <Law addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/BeatSeller" component={BeatSeller} />
+              <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} />} />
+              {/* 
+              <Route path="/components/1" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[0], this.state.allData[1]]} />} />
+              <Route path="/components/2" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[3], this.state.allData[4]]} />} /> */}
             </div>
           </Router>
 
