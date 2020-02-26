@@ -44,7 +44,7 @@ nav a {
   display: block;
   color: white;
   text-align: center;
-  padding: 1.5% 3.45%;
+  padding: 1.5% 3.72%;
   text-decoration: none;
   float: left;
 }
@@ -133,16 +133,57 @@ button,
 
 /* ======================================================================================================================================= */
 
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@media (max-width: 600px) {
+  .logo {
+    height: 20%;
+    width: 20%;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+  h1 {
+    font-family: "Times New Roman";
+    font-style: italic;
+    margin-left: 10%;
+    margin-top: 3%;
+  }
+
+  nav {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    /* overflow: hidden; */
+    background-color: #333;
+  }
+
+  nav a {
+    display: block;
+    color: white;
+    /* text-align: center; */
+    padding: 5% 25% 5% 25%;
+    text-decoration: none;
+    /* float: right; */
+    margin-left: 10%;
+  }
+
+  nav a:hover:not(.active) {
+    background-color: #111;
+  }
+
+  .active {
+    background-color: #333;
+  }
+
+  /* .img-books {
+    height: 50%;
+    width: 50%;
+    padding: 2%;
+  } */
+  /* 
+  .books {
+     height: 50%;
+    width: 50%;
+     display: flex;
+    flex-wrap: wrap;  
+     float: right;
+    padding-top: 5%; 
+  } */
+}

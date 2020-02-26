@@ -27,6 +27,7 @@ export default class BeatSeller extends Component {
             <h4>{book.byline}</h4>
             <h5>{book.book_author}</h5>
             <p>{book.summary}</p>
+            <hr></hr>
           </div>
         ))}
       </div>
