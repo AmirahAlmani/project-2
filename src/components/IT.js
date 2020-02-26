@@ -65,6 +65,7 @@ export default class IT extends Component {
 
     return (
       <div class="list">
+        {/* map for show books  */}
         {ITbook.map(item => {
           return (
             <div>
@@ -72,11 +73,11 @@ export default class IT extends Component {
                 <h4>{item.title}</h4>
                 <h5>{item.author}</h5>
                 <p>{item.summary}</p>
-                <div className={`book-row-fave }`}>
-                  {" "}
+                <div>
+                  {/* button to add to fave  */}
                   <button onClick={() => this.props.addFavFunc(item)}>
                     Fave
-                  </button>{" "}
+                  </button>
                 </div>
               </div>
               <div class="img-books">{item.img}</div>

@@ -62,6 +62,7 @@ export default class Law extends Component {
 
     return (
       <div class="list">
+        {/* map for show books  */}
         {lowBook.map(item => {
           return (
             <div>
@@ -70,10 +71,10 @@ export default class Law extends Component {
                 <h5>{item.author}</h5>
                 <p>{item.summary}</p>
                 <div>
-                  {" "}
+                  {/* button to add to fave  */}
                   <button onClick={() => this.props.addFavFunc(item)}>
                     Fave
-                  </button>{" "}
+                  </button>
                 </div>
               </div>
               <div class="img-books">{item.img}</div>

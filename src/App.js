@@ -185,16 +185,17 @@ class App extends Component {
             " Described by leading university lecturers as 'the best law dictionary' and 'excellent for non-law students as well as law undergraduates', this classic dictionary is an invaluable source of legal reference for professionals, students, and anyone else needing succinct clarification of legal terms. Focusing primarily on English law, it also provides a one-stop source of information for any of the many countries that base their legal system on English law. "
         }
       ],
-      searchData: [],
+      searchData: [], //arry for search
       faves: [],
 
-      newBooks: [],
-      bookTitle: "",
-      bookAuther: "",
-      bookDescription: ""
+      newBooks: [], //array to add new book
+      bookTitle: "", //item to add in new book
+      bookAuther: "", //item to add in new book
+      bookDescription: "" //item to add in new book
     };
   }
 
+  //function to add new book
   addBook = e => {
     console.log("Add book");
     e.preventDefault();
@@ -215,6 +216,7 @@ class App extends Component {
     });
   };
 
+  //function to write
   onTextBoxChange = e => {
     console.log("On Text Change", e.target.value);
 
@@ -223,6 +225,7 @@ class App extends Component {
     });
   };
 
+  //function to add fave books
   addFavFunc = book => {
     console.log(book);
     const faves = [...this.state.faves];
@@ -241,6 +244,7 @@ class App extends Component {
     });
   };
 
+  //function to delete all books from fave
   deleteAll = book => {
     const faves = [...this.state.faves];
     this.setState({
@@ -249,6 +253,7 @@ class App extends Component {
     console.log("delet all");
   };
 
+  //function to delete book from newBooks
   delete = book => {
     const newBooks = [...this.state.newBooks];
     const bookIndex = newBooks.indexOf(book);
@@ -268,6 +273,7 @@ class App extends Component {
       <div>
         <div class="logo"></div>
         <div class="head">
+          {/* logo */}
           <img
             class="logo"
             src="https://i.pinimg.com/originals/31/61/e1/3161e1ebbecb7efcb9bbb2b011ff489d.png"
@@ -277,6 +283,7 @@ class App extends Component {
         </div>
 
         <div>
+          {/* navigation bar */}
           <Router>
             <nav>
               <Link to="/components/Home">Home</Link>
@@ -291,6 +298,7 @@ class App extends Component {
               <Link to="/components/AddNewBook">Add New Book</Link>
             </nav>
 
+            {/* this map for search  */}
             {this.state.searchData.map(elem => {
               return (
                 <div class="list">
@@ -309,21 +317,29 @@ class App extends Component {
               <Route
                 path="/components/BusinessAndManagement"
                 component={() => (
+                  // send addFavFunc function to BusinessAndManagement
                   <BusinessAndManagement addFavFunc={this.addFavFunc} />
                 )}
               />
               <Route
                 path="/components/IT"
-                component={() => <IT addFavFunc={this.addFavFunc} />}
+                component={() => (
+                  // send addFavFunc function to IT
+                  <IT addFavFunc={this.addFavFunc} />
+                )}
               />
               <Route
                 path="/components/Law"
-                component={() => <Law addFavFunc={this.addFavFunc} />}
+                component={() => (
+                  // send addFavFunc function to Law
+                  <Law addFavFunc={this.addFavFunc} />
+                )}
               />
               <Route path="/components/BeatSeller" component={BeatSeller} />
               <Route
                 path="/components/Fave"
                 component={() => (
+                  // send addFavFunc function ,deleteAll function ,faves array  to Fave
                   <Fave
                     faves={this.state.faves}
                     addFavFunc={this.addFavFunc}
@@ -335,6 +351,9 @@ class App extends Component {
               <Route
                 path="/components/AddNewBook"
                 render={() => (
+                  // send onTextBoxChange function ,delete function ,newBooks array ,addBook function, bookTitle ,bookAuthor
+                  // ,bookDescription  to AddNewBook
+
                   <AddNewBook
                     newBooks={this.state.newBooks}
                     addBook={this.addBook}
