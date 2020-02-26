@@ -16,8 +16,11 @@ export default class Fave extends Component {
         // const message = this.state.isFave ? "remove_from_queue" : "add_to_queue";
         return (
             <div class='list'>
+                <div> <button onClick={() => this.props.deleteAll()} >Delete All</button> </div>
+
                 {this.props.faves.map((oneBookjObj) => {
                     return <div>
+
                         <div class='books'>
                             <h4>{oneBookjObj.title}</h4>
                             <h5>{oneBookjObj.author}</h5>

@@ -9,6 +9,7 @@ import Fave from './components/Fave';
 import Search from './components/Search'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import AddNewBook from './components/AddNewBook';
 
 
 
@@ -136,7 +137,7 @@ class App extends Component {
       ],
       searchData: [],
       faves: [],
-
+      addBook=[]
     };
 
 
@@ -170,24 +171,14 @@ class App extends Component {
     )
   };
 
-
-  // handleChange = (event) => {
-  //   this.setState({ value: event.target.value });
-  // }
-
-  // handleSubmit = (event) => {
-
-  //   event.preventDefault();
-  //   console.log(this.state.value);
-  //   let newData = this.state.allData.filter(
-  //     (book) => {
-  //       return book.title.includes(this.state.value);
-  //     }
-  //   )
-  //   this.setState({ searchData: newData })
-
-  // }
-
+  deleteAll = book => {
+    const faves = [...this.state.faves];
+    this.setState({
+      faves: []
+    }
+    )
+    console.log('delet all');
+  }
 
 
   render() {
@@ -203,17 +194,7 @@ class App extends Component {
 
           <h1>Book website</h1>
 
-          {/* <div class='search'>
 
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Search:
-            <input class='box' type="text" id="filter" value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input class='submit' type="submit" value="Search" />
-            </form>
-
-          </div> */}
 
         </div>
 
@@ -228,6 +209,7 @@ class App extends Component {
               <Link to="/components/BeatSeller">Beat Seller</Link>
               <Link to="/components/Fave">Fave</Link>
               <Link to="/components/Search">Search</Link>
+              <Link to="/components/AddNewBook">Add New Book</Link>
             </nav>
 
             {this.state.searchData.map((elem) => {
@@ -249,8 +231,9 @@ class App extends Component {
               <Route path="/components/IT" component={() => <IT addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/Law" component={() => <Law addFavFunc={this.handleFaveToggle} />} />
               <Route path="/components/BeatSeller" component={BeatSeller} />
-              <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} addFavFunc={this.handleFaveToggle} />} />
+              <Route path="/components/Fave" component={() => <Fave faves={this.state.faves} addFavFunc={this.handleFaveToggle} deleteAll={this.deleteAll} />} />
               <Route path="/components/Search" component={Search} />
+              <Route path="/components/AddNewBook" component={() => <AddNewBook faves={this.state.faves} deleteAll={this.deleteAll} />} />
               {/* 
               <Route path="/components/1" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[0], this.state.allData[1]]} />} />
               <Route path="/components/2" component={() => <List addFavFunc={this.handleFaveToggle} bookList={[this.state.allData[3], this.state.allData[4]]} />} /> */}
