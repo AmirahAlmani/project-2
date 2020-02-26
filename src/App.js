@@ -216,10 +216,15 @@ class App extends Component {
 
   onTextBoxChange = e => {
     console.log("On Text Change", e.target.value);
+    // this.setState(
+    //   { [e.target.name]: e.target.value },
+    //   { [e.target.name]: e.target.value },
+    //   { [e.target.name]: e.target.value }
+    // );
     this.setState({
-      bookTitle: e.target.value,
-      bookAuthor: e.target.value,
-      bookDescription: e.target.value
+      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 

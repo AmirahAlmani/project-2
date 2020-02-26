@@ -8,6 +8,7 @@ export default class AddNewBook extends Component {
           <label for="fname">Book Titile :</label>
 
           <input
+            name="bookTitle"
             type="text"
             value={this.props.bookTitle}
             onChange={this.props.onchang}
@@ -17,6 +18,7 @@ export default class AddNewBook extends Component {
           <label for="fname">Book Auther :</label>
 
           <input
+            name="bookAuther"
             type="text"
             value={this.props.bookAuther}
             onChange={this.props.onchang}
@@ -26,6 +28,7 @@ export default class AddNewBook extends Component {
           <label for="fname">Book Description :</label>
 
           <input
+            name="bookDescription"
             type="text"
             value={this.props.bookDescription}
             onChange={this.props.onchang}
