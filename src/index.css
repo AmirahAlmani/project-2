@@ -1,11 +1,29 @@
-
-.logo{
-
-height: 10%;
-width: 10%;
-
+.logo {
+  height: 10%;
+  width: 10%;
 }
 
+.h3 {
+  margin-top: 2.5%;
+  margin-left: 5%;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.box {
+  margin-left: 5%;
+  width: 10%;
+}
+
+#textarea {
+  height: 30%;
+  width: 40%;
+}
+
+#addbook {
+  margin-left: 5%;
+}
 
 h1 {
   font-family: "Times New Roman";
@@ -21,8 +39,6 @@ nav {
   overflow: hidden;
   background-color: #333;
 }
-
-
 
 nav a {
   display: block;
@@ -42,22 +58,20 @@ nav a:hover:not(.active) {
 }
 
 .head {
- 
   display: flex;
   flex-wrap: wrap;
   margin-left: 2%;
-
 }
 
 .search {
-margin-top: 2.5%;
-margin-left: 5%;
-font-style: italic;
-font-weight: bold;
-font-size: 100%;
+  margin-top: 2.5%;
+  margin-left: 5%;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100%;
 }
 
-.submit{
+.submit {
   background-color: #333;
   border: none;
   color: white;
@@ -68,54 +82,43 @@ font-size: 100%;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-
 }
-
 
 .box {
-padding: 7px 60px;
-
+  padding: 7px 60px;
 }
 
-.list{
-padding: 3%;
-/* background: gray; */
+.list {
+  padding: 3%;
+  /* background: gray; */
 }
-
-
-
 
 .img-home {
   height: 100%;
   width: 100%;
 }
 
-
-.img-books{
+.img-books {
   height: 50%;
   width: 50%;
   padding: 2%;
 }
 
-
-.books{
+.books {
   height: 50%;
   width: 50%;
-   /* display: flex;
+  /* display: flex;
   flex-wrap: wrap;  */
   float: right;
   padding-top: 5%;
-  
 }
 
-
-
-.best{
+.best {
   padding: 2%;
-
 }
 
-button , .button{
+button,
+.button {
   background-color: #333;
   border: none;
   color: white;
@@ -126,13 +129,9 @@ button , .button{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-
 }
 
 /* ======================================================================================================================================= */
-
-
-
 
 /* body {
   margin: 0;

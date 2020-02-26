@@ -5,9 +5,10 @@ export default class AddNewBook extends Component {
     return (
       <div class="list">
         <form>
-          <label for="fname">Book Titile :</label>
-
+          <label class="h3">Book Titile :</label>
+          <br></br>
           <input
+            class="box"
             name="bookTitle"
             type="text"
             value={this.props.bookTitle}
@@ -15,9 +16,10 @@ export default class AddNewBook extends Component {
             placeholder="Book Title"
           ></input>
           <br></br>
-          <label for="fname">Book Auther :</label>
-
+          <label class="h3">Book Auther :</label>
+          <br></br>
           <input
+            class="box"
             name="bookAuther"
             type="text"
             value={this.props.bookAuther}
@@ -25,23 +27,39 @@ export default class AddNewBook extends Component {
             placeholder="Book Auther"
           ></input>
           <br></br>
-          <label for="fname">Book Description :</label>
-
-          <input
+          <label class="h3">Book Description :</label>
+          <br></br>
+          <textarea
+            class="box"
+            id="textarea"
             name="bookDescription"
             type="text"
             value={this.props.bookDescription}
             onChange={this.props.onchang}
             placeholder="Book Description"
-          ></input>
+          ></textarea>
           <br></br>
 
-          <button onClick={this.props.addBook}>Add </button>
+          <button id="addbook" onClick={this.props.addBook}>
+            Add
+          </button>
         </form>
 
         <div class="list">
           {this.props.newBooks.map(item => {
-            return <div>{item}</div>;
+            return (
+              <div>
+                <div>
+                  <button onClick={() => this.props.delete(item)}>
+                    Delete
+                  </button>
+                </div>
+                <h2>{item[0]}</h2>
+                <h3>{item[1]}</h3>
+                <p>{item[2]}</p>
+                <hr></hr>
+              </div>
+            );
           })}
         </div>
       </div>

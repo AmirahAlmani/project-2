@@ -190,7 +190,7 @@ class App extends Component {
 
       newBooks: [],
       bookTitle: "",
-      bookAuthor: "",
+      bookAuther: "",
       bookDescription: ""
     };
   }
@@ -203,32 +203,27 @@ class App extends Component {
     this.setState({
       newBooks: [
         ...this.state.newBooks,
-        this.state.bookTitle,
-        this.state.bookAuthor,
-        this.state.bookDescription
+        [
+          this.state.bookTitle,
+          this.state.bookAuther,
+          this.state.bookDescription
+        ]
       ],
-      // newBooks: [this.state.bookTitle],
       bookTitle: "",
-      bookAuthor: "",
+      bookAuther: "",
       bookDescription: ""
     });
   };
 
   onTextBoxChange = e => {
     console.log("On Text Change", e.target.value);
-    // this.setState(
-    //   { [e.target.name]: e.target.value },
-    //   { [e.target.name]: e.target.value },
-    //   { [e.target.name]: e.target.value }
-    // );
+
     this.setState({
-      [e.target.name]: e.target.value,
-      [e.target.name]: e.target.value,
       [e.target.name]: e.target.value
     });
   };
 
-  handleFaveToggle = book => {
+  addFavFunc = book => {
     console.log(book);
     const faves = [...this.state.faves];
     const bookIndex = faves.indexOf(book);
@@ -252,6 +247,20 @@ class App extends Component {
       faves: []
     });
     console.log("delet all");
+  };
+
+  delete = book => {
+    const newBooks = [...this.state.newBooks];
+    const bookIndex = newBooks.indexOf(book);
+
+    if (bookIndex !== -1) {
+      newBooks.splice(bookIndex, 1);
+      console.log(`Delete ${book.title} from Favors`);
+    }
+
+    this.setState({
+      newBooks
+    });
   };
 
   render() {
@@ -300,16 +309,16 @@ class App extends Component {
               <Route
                 path="/components/BusinessAndManagement"
                 component={() => (
-                  <BusinessAndManagement addFavFunc={this.handleFaveToggle} />
+                  <BusinessAndManagement addFavFunc={this.addFavFunc} />
                 )}
               />
               <Route
                 path="/components/IT"
-                component={() => <IT addFavFunc={this.handleFaveToggle} />}
+                component={() => <IT addFavFunc={this.addFavFunc} />}
               />
               <Route
                 path="/components/Law"
-                component={() => <Law addFavFunc={this.handleFaveToggle} />}
+                component={() => <Law addFavFunc={this.addFavFunc} />}
               />
               <Route path="/components/BeatSeller" component={BeatSeller} />
               <Route
@@ -317,7 +326,7 @@ class App extends Component {
                 component={() => (
                   <Fave
                     faves={this.state.faves}
-                    addFavFunc={this.handleFaveToggle}
+                    addFavFunc={this.addFavFunc}
                     deleteAll={this.deleteAll}
                   />
                 )}
@@ -333,6 +342,7 @@ class App extends Component {
                     bookTitle={this.bookTitle}
                     bookAuthor={this.bookAuthor}
                     bookDescription={this.bookDescription}
+                    delete={this.delete}
                   />
                 )}
               />
