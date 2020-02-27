@@ -73,6 +73,7 @@ I use The New York Times to represent Best Sellers lists.
 <li>create components
 <li>Add informations and API
 <li>create functions
+<li> CSS and Design 
 
 ## Future improvements:
 
