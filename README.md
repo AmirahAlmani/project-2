@@ -22,26 +22,44 @@ I use The New York Times to represent Best Sellers lists.
 
 ## Wireframes:
 
-###Home page:
+### Home page:
+
 ![HOME!](img/HOME1.png)
-###Book page:
+
+### Book page:
+
 ![Book!](img/BOOK.png)
-###Best Sellers page :
+
+### Best Sellers page :
+
 ![API!](img/API1.png)
-###Search page :
+
+### Search page :
+
 ![Search!](img/SEARCH1.png)
-###Fave page:
+
+### Fave page:
+
 ![Fave!](img/FAVE.png)
 
-###Home page:
+### Home page:
+
 ![home](img/home.png)
-###Books page:
+
+### Books page:
+
 ![book](img/books.png)
-###Best Sellers page :
+
+### Best Sellers page :
+
 ![api](img/api.png)
-###Search page:
+
+### Search page:
+
 ![search](img/search.png)
-###Add Books page :
+
+### Add Books page :
+
 ![addbook](img/addbook.png)
 
 ## Development process and problem-solving strategy:
