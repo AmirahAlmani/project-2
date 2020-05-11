@@ -14,6 +14,7 @@ import AddNewBook from "./components/AddNewBook";
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       value: " ",
       allData: [
@@ -245,8 +246,8 @@ class App extends Component {
   };
 
   //function to delete all books from fave
-  deleteAll = book => {
-    const faves = [...this.state.faves];
+  deleteAll = () => {
+    // const faves = [...this.state.faves];
     this.setState({
       faves: []
     });
